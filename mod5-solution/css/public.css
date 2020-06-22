@@ -183,3 +183,28 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+
+/*SIGNUP FORM*/
+legend
+{
+  color:white!important;
+  text-transform: uppercase;
+}
+input
+{
+  margin:5px!important;
+}
+
+#signup button, input
+{
+  padding: 6px 300px 10px 5px!important;
+  margin:6px;
+  color:#000;
+}
+
+#signup #info
+{
+  color: red;
+  text-transform: uppercase;
+  font-size: 20px;
+}
