@@ -5,20 +5,20 @@
             <form name='regForm' novalidate>
 
         <input type="text" name="fname" placeholder="First Name"
-          ng-model="signupCtrl.userInfo.fname" required>
+          ng-model="signupCtrl.fname" required>
           <span ng-if="regForm.fname.$error.required && regForm.fname.$touched">
             <small>First name is required</small>
           </span>
           <br>
         <input type="text" name="lname" placeholder="Last Name"
-            ng-model="signupCtrl.userInfo.lname" required>
+            ng-model="signupCtrl.lname" required>
             <span ng-if="regForm.lname.$error.required && regForm.lname.$touched">
               <small>Last name is required</small>
             </span>
         <br>
 
         <input type="email" name="email" placeholder="Email"
-          ng-model="signupCtrl.userInfo.email"
+          ng-model="signupCtrl.email"
           required>
           <span ng-if="regForm.email.$invalid && regForm.email.$touched">
             Must be a valid email address: handle@domain format
@@ -26,7 +26,7 @@
           <br>
 
         <input type="text" name="phone" placeholder="Phone ###-###-####"
-          ng-model="signupCtrl.userInfo.phone"
+          ng-model="signupCtrl.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
@@ -34,16 +34,16 @@
           <br>
 
         <input type="text" name="favmenu" placeholder="Enter the menu number"
-        ng-model="signupCtrl.userInfo.favmenu">
-        <!-- <span ng-if="regForm.itemSearched && !regForm.validShortCode">
+        ng-model="signupCtrl.favmenu">
+        <span ng-if="regForm.registrationSuccess && !regForm.favoriteDishFound">
              <small>No such menu number exists</small>
-       </span> -->
+       </span>
 
         <br>
         <button
           ng-disabled="regForm.$invalid"
-          ng-click="signupCtrl.submit()">Submit</button>
-          <span ng-if="signupCtrl.completed">
+          ng-click="signupCtrl.signUp($event)">Submit</button>
+          <span ng-if="signupCtrl.registrationSuccess">
                 Your Information has been saved!
           </span>
       </form>

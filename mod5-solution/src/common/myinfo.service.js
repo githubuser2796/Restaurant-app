@@ -7,23 +7,26 @@
     MyInfoService.$inject = [];
     function MyInfoService() {
         var service = this;
-        var users_info;
-    service.getInfo = function()
-    {
-      return users_info;
-    };
+        var user;
 
-    service.storeInfo = function(fname,lname,email,phone,favmenu)
-    {
-      var temp={
-        FirstName:fname,
-        LastName:lname,
-        MailId:email,
-        Phone:phone,
-        FavoriteDish:favmenu
-      };
-      users_info = temp;
-      return(1);
-    };
+         //Only handling one user, but this should be an add method
+         service.setUser = function(newUser) {
+           console.log("Setting user...");
+           user = {
+             fname: newUser.fname,
+             lname: newUser.lname,
+             email: newUser.email,
+             phone: newUser.phone,
+             favmenu: newUser.favmenu,
+             favoriteMenuItem: newUser.favoriteMenuItem
+           };
+           console.log("Set user!");
+         };
+
+         //Only handling one user, but this should be an get method
+         // with index as argument
+         service.getUser = function() {
+           return user;
+         };
   }
 })();

@@ -4,22 +4,25 @@
     angular.module('public')
     .controller('MyInfoController', MyInfoController);
 
-  MyInfoController.$inject = ['information','menuItems'];
-  function MyInfoController(information,menuItems) {
+  MyInfoController.$inject = ['user'];
+  function MyInfoController(user) {
     var $ctrl = this;
 
-    $ctrl.information = information;
+    $ctrl.signedUp = false;
+      $ctrl.favoriteMenuItem;
 
-    if($ctrl.information == null){
-      $ctrl.signupWarning = "Not Signed Up Yet. Sign up Now!";  
-    }
-    else{
-
-        $ctrl.menuItems= menuItems.menu_items;
-        if($ctrl.menuItems.length == 0){
-          $ctrl.warning = "No such menu number exists";
-        }
-    }
+      if(user) {
+        $ctrl.signedUp = true;
+        $ctrl.fname = user.fname;
+        $ctrl.lname = user.lname;
+        $ctrl.email = user.email;
+        $ctrl.phone = user.phone;
+        $ctrl.favmenu = user.favmenu;
+        $ctrl.favoriteMenuItem = user.favoriteMenuItem;
+      }
+      else {
+        $ctrl.signedUp = false;
+      }
   }
 
 })();

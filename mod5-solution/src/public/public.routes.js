@@ -53,13 +53,8 @@ function routeConfig ($stateProvider) {
       controller: 'MyInfoController',
       controllerAs: 'myInfoCtrl',
       resolve: {
-        information: ['MyInfoService', function(MyInfoService) {
-          return MyInfoService.getInfo();
-        }],
-        menuItems:['MenuService','information',function(MenuService,information){
-          if(information != null){
-              return MenuService.getMenuItems(information.FavoriteDish);
-          }
+        user: ['MyInfoService', function(MyInfoService) {
+          return MyInfoService.getUser();
         }]
       }
     });
