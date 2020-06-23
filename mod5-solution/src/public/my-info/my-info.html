@@ -3,11 +3,11 @@
 
 <div class="myinfo" ng-if="myInfoCtrl.completed">
   <div class="container">
-      First Name:{{ myInfoCtrl.users_info.FirstName }}
-      <!-- Last Name:{{ myInfoCtrl.userInfo.lname }}
+      First Name:{{ myInfoCtrl.userInfo.fname }}
+      Last Name:{{ myInfoCtrl.userInfo.lname }}
       Email:{{ myInfoCtrl.userInfo.email }}
       Phone:{{ myInfoCtrl.userInfo.phone }}
-      Favorite Dish:{{ myInfoCtrl.userInfo.favmenu }} -->
+      Favorite Dish:{{ myInfoCtrl.userInfo.favmenu }}
     </dl>
   </div>
   <div class="myinfo-dish">
@@ -15,9 +15,9 @@
   </div>
 </div>
 
-<!-- <div class="myinfo-alert">
+<div class="myinfo-alert">
   <div class="alert alert-warning" ng-if="!myInfoCtrl.completed">
       <h2>Not Signed Up Yet.</h2>
       <button type="button" ui-sref="public.signup" class="btn btn-primary">Sign up Now!</button>
   </div>
-</div> -->
+</div>
