@@ -2,96 +2,23 @@
 
 <fieldset>
       <legend>Sign Up Form</legend>
-      <form name="signupForm" novalidate>
-              <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <input type="text"
-                        class="form-control"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
-                        ng-model="signupCtrl.userInfo.firstName"
-                        required>
-                  <span ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">
-                      <small>First name is required</small>
-                  </span>
-              </div>
-              <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <input type="text"
-                        class="form-control"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
-                        ng-model="signupCtrl.userInfo.lastName"
-                        required>
-                  <span ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">
-                      <small>Last name is required</small>
-                  </span>
-              </div>
-              <div class="form-group">
-                  <label for="emailAddress">Email</label>
-                  <input type="email"
-                        class="form-control"
-                        id="emailAddress"
-                        name="emailAddress"
-                        placeholder="Email"
-                        ng-model="signupCtrl.userInfo.emailAddress"
-                        required>
-                  <span ng-if="signupForm.emailAddress.$invalid && signupForm.emailAddress.$touched">
-                      <small>Must be a valid email address: handle@domain format</small>
-                  </span>
-              </div>
-              <div class="form-group">
-                  <label for="phoneNumber">Phone</label>
-                  <input type="tel"
-                        class="form-control"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        ng-model="signupCtrl.userInfo.phoneNumber"
-                        placeholder="Phone ###-###-####"
-                        pattern="(\d{3})-(\d{3})-(\d{4})">
-                  <span ng-if="signupForm.phoneNumber.$invalid && signupForm.phoneNumber.$touched">
-                      <small>Phone must be in the format ###-###-####</small>
-                  </span>
-              </div>
-              <div class="form-group">
-                  <label for="favoriteDish">Favorite Dish</label>
-                  <input type="text"
-                        class="form-control"
-                        id="favoriteDish"
-                        name="favoriteDish"
-                        placeholder="Short Code of Your Favorite Dish"
-                        ng-model="signupCtrl.userInfo.favoriteDish"
-                        ng-blur="signupCtrl.validateFavdish()">
-                  <span ng-if="signupCtrl.itemSearched && !signupCtrl.validShortCode">
-                      <small>No such menu number exists</small>
-                  </span>
-
-
-              </div>
-              <button class="btn btn-success"
-                      ng-disabled="signupForm.$invalid"
-                      ng-click="signupCtrl.setMyinfo()">Submit</button>
-          </form>
-
-      <!-- <form name='regForm' novalidate>
+            <form name='regForm' novalidate>
 
         <input type="text" name="fname" placeholder="First Name"
-          ng-model="reg.userInfo.fname" required>
+          ng-model="signupCtrl.userInfo.fname" required>
           <span ng-if="regForm.fname.$error.required && regForm.fname.$touched">
             <small>First name is required</small>
           </span>
           <br>
         <input type="text" name="lname" placeholder="Last Name"
-            ng-model="reg.userInfo.lname" required>
+            ng-model="signupCtrl.userInfo.lname" required>
             <span ng-if="regForm.lname.$error.required && regForm.lname.$touched">
               <small>Last name is required</small>
             </span>
         <br>
 
         <input type="email" name="email" placeholder="Email"
-          ng-model="reg.userInfo.email"
+          ng-model="signupCtrl.userInfo.email"
           required>
           <span ng-if="regForm.email.$invalid && regForm.email.$touched">
             Must be a valid email address: handle@domain format
@@ -99,28 +26,26 @@
           <br>
 
         <input type="text" name="phone" placeholder="Phone ###-###-####"
-          ng-model="reg.userInfo.phone"
+          ng-model="signupCtrl.userInfo.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
           <br>
 
-        <!-- <input type="text" name="favmenu" placeholder="Enter the menu number"
-        ng-model="reg.userInfo.favmenu" ng-blur="reg.validateFavDish()">
-        <span ng-if="regForm.itemSearched && !regForm.validShortCode">
+        <input type="text" name="favmenu" placeholder="Enter the menu number"
+        ng-model="signupCtrl.userInfo.favmenu">
+        <!-- <span ng-if="regForm.itemSearched && !regForm.validShortCode">
              <small>No such menu number exists</small>
        </span> -->
 
-        <!-- <br>
+        <br>
         <button
           ng-disabled="regForm.$invalid"
-          ng-click="reg.submit()">Submit</button>
-
-      </form> --> 
+          ng-click="signupCtrl.submit()">Submit</button>
+          <span ng-if="signupCtrl.completed">
+                Your Information has been saved!
+          </span>
+      </form>
     </fieldset>
 </div>
-
-<div id="info" ng-if="reg.saved">
-      Your Information has been saved!
-    </div>

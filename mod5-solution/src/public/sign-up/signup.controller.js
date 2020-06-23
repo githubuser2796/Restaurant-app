@@ -4,43 +4,16 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['MyInfoService','MenuService', 'ApiPath']
-function SignUpController(MyInfoService, MenuService, ApiPath) {
-  var ctrl = this;
-  ctrl.userInfo = {};
-  ctrl.saved = false;
-  ctrl.validShortCode = false;
-  ctrl.itemSearched = false;
-  ctrl.basePath = ApiPath;
-
-  ctrl.setMyinfo = function()
-  {
-    console.log('SignupController.setMyinfo()');
-    MyInfoService.setMyinfo(ctrl.userInfo);
-    ctrl.saved = true;
+SignUpController.$inject = ['MyInfoService']
+function SignUpController(MyInfoService) {
+  var reg = this;
+  reg.submit = function ()
+   {
+    var res = MyInfoService.storeInfo(reg.userInfo.fname,reg.userInfo.lname,reg.userInfo.email,reg.userInfo.phone,reg.userInfo.favmenu);
+    if(res == 1){
+      reg.completed = true;
+    }
   };
-
-  ctrl.validateFavdish = function()
-  {
-            ctrl.validShortCode = false;
-            ctrl.itemSearched = false;
-            console.log('in SignupController.validateFavdish():', ctrl.userInfo);
-
-            if(typeof ctrl.userInfo.favoriteDish === 'undefined') return;
-            if(ctrl.userInfo.favoriteDish.trim().length <= 0) return;
-
-            MenuService.getMenuItem(ctrl.userInfo.favoriteDish).then(
-                function(response) {
-                    console.log('SignupController.validateFavdish() :)', response.data);
-                    ctrl.userInfo.MenuItem = response.data;
-                    ctrl.validShortCode = true;
-                    ctrl.itemSearched = true;
-                },
-                function(response) {
-                    console.log('SignupController.validateFavdish() :(', response.data);
-                    ctrl.itemSearched = true;
-                }
-            );
-        };
+}
 
 })();
