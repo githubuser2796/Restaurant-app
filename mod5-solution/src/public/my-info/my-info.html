@@ -1,15 +1,31 @@
 <div class="container">
-  <h2 id="menu-categories-title">My Info</h2>
-
   <div class="myinfo" ng-if="myInfoCtrl.signedUp">
+      <h2 id="menu-categories-title">My Info</h2><br>
     <div class="row">
-          <p>  First Name: {{ myInfoCtrl.fname }} </p>
-          <p>  Last Name: {{ myInfoCtrl.lname }} </p>
-          <p>  Email: {{ myInfoCtrl.email }}</p>
-          <p>  Phone: {{ myInfoCtrl.phone }}</p>
-          <p>  Favorite Dish: {{ myInfoCtrl.favmenu }}</p>
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>  First Name: </th>
+            <td> {{ myInfoCtrl.fname }} </td>
+          <tr>
+          <tr>
+            <th>  Last Name: </th> <td> {{ myInfoCtrl.lname }} </td>
+          </tr>
+          <tr>
+            <th>  Email: </th> <td> {{ myInfoCtrl.email }}</td>
+          </tr>
+          <tr>
+            <th>  Phone: </th> <td>{{ myInfoCtrl.phone }}</td>
+          </tr>
+          <tr>
+            <th>  Favorite Dish: </th><td> {{ myInfoCtrl.favmenu }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
+
     <div class="row">
+      <h2 id="menu-categories-title">Favourite Dish</h2><br>
       <div class="myinfo-dish">
         <menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
         <div ng-show="!myInfoCtrl.favoriteMenuItem">
