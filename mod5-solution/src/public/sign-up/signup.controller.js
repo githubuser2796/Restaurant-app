@@ -22,7 +22,7 @@ function SignUpController(MyInfoService,MenuService) {
             favmenu: $ctrl.favmenu
       };
 
-      MenuService.getMenuItems($ctrl.favmenu)
+      MenuService.getMenuItem($ctrl.favmenu)
         .then(function(data) {
           console.log("Dish found:", data);
           user.favoriteMenuItem = data;

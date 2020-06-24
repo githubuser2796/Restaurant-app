@@ -1,24 +1,28 @@
 <div class="container">
-<h2 id="menu-categories-title" class="text-center">My Info</h2>
+  <h2 id="menu-categories-title" class="text-center">My Info</h2>
 
+  <div class="myinfo" ng-if="myInfoCtrl.signedUp">
+    <div class="row">
+      <div class="col-md-6">
+          <p>  First Name: {{ myInfoCtrl.fname }} </p>
+          <p>  Last Name: {{ myInfoCtrl.lname }} </p>
+          <p>  Email: {{ myInfoCtrl.email }}</p>
+          <p>  Phone: {{ myInfoCtrl.phone }}</p>
+          <p>  Favorite Dish: {{ myInfoCtrl.favmenu }}</p>
+      </div>
 
-<div class="myinfo" ng-if="myInfoCtrl.signedUp">
-  <div>
-    <p>  First Name: {{ myInfoCtrl.fname }} </p>
-    <p>  Last Name: {{ myInfoCtrl.lname }} </p>
-    <p>  Email: {{ myInfoCtrl.email }}</p>
-    <p>  Phone: {{ myInfoCtrl.phone }}</p>
-    <p>  Favorite Dish: {{ myInfoCtrl.favmenu }}</p>
+      <div class="col-md-6 myinfo-dish">
+        <menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
+        <div ng-show="!myInfoCtrl.favoriteMenuItem">
+          You entered invalid shortname for favourite dish!
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="myinfo-dish">
-    <menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
+    <div class="myinfo-alert">
+      <div class="alert alert-warning" ng-if="!myInfoCtrl.signedUp">
+          <h2>Not Signed Up Yet.</h2>
+          <button type="button" ui-sref="public.signup" class="btn btn-primary">Sign up Now!</button>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="myinfo-alert">
-  <div class="alert alert-warning" ng-if="!myInfoCtrl.signedUp">
-      <h2>Not Signed Up Yet.</h2>
-      <button type="button" ui-sref="public.signup" class="btn btn-primary">Sign up Now!</button>
-  </div>
-</div>
-</div>

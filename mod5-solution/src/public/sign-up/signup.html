@@ -35,7 +35,7 @@
 
         <input type="text" name="favmenu" placeholder="Enter the menu number"
         ng-model="signupCtrl.favmenu">
-        <span ng-if="regForm.registrationSuccess && !regForm.favoriteDishFound">
+        <span ng-if="signupCtrl.registrationSuccess && !signupCtrl.favoriteDishFound">
              <small>No such menu number exists</small>
        </span>
 
@@ -43,7 +43,7 @@
         <button
           ng-disabled="regForm.$invalid"
           ng-click="signupCtrl.signUp($event)">Submit</button>
-          <span ng-if="signupCtrl.registrationSuccess">
+          <span ng-if="signupCtrl.registrationSuccess && signupCtrl.favoriteDishFound">
                 Your Information has been saved!
           </span>
       </form>
