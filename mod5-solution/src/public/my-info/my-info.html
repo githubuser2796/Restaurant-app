@@ -3,7 +3,7 @@
 
   <div class="myinfo" ng-if="myInfoCtrl.signedUp">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
           <p>  First Name: {{ myInfoCtrl.fname }} </p>
           <p>  Last Name: {{ myInfoCtrl.lname }} </p>
           <p>  Email: {{ myInfoCtrl.email }}</p>
@@ -11,7 +11,7 @@
           <p>  Favorite Dish: {{ myInfoCtrl.favmenu }}</p>
       </div>
 
-      <div class="col-md-6 myinfo-dish">
+      <div class="col-md-9 myinfo-dish">
         <menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
         <div ng-show="!myInfoCtrl.favoriteMenuItem">
           You entered invalid shortname for favourite dish!
